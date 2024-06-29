@@ -16,6 +16,7 @@ def post_user_payload(decoded_token):
         "email": email,
         "cognito_user_id": user_id,
         "status": "APPLICANT",
+        "db_source": "disrupt",
         "phone": {
             "country_code": "+52",
             "phone_number": phone,

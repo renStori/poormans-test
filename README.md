@@ -1,4 +1,4 @@
-Install
+## Installation
 ```
 # Install poetry
 curl -sSL https://install.python-poetry.org | python3 -
@@ -11,5 +11,9 @@ cd poormans-test
 poetry install --no-root
 
 # Execute
-poetry run python main.py --email poormans-email@yopmail.com
+poetry run python main.py --email poormans-email@yopmail.com # By defaul --password is Holamundo1
 ```
+
+## Documentation
+
+[Read the docs.](https://github.com/renStori/poormans-test/blob/main/main.py)
