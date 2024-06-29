@@ -1,15 +1,13 @@
 import requests
 from rich import print
 
-from helpers import create_headers
+from helpers import create_headers, platform_url
 
-post_user_phone_url = "https://internal-gateway.storicarddev.com/v1/users/phone_numbers"
+post_user_phone_url = f"{platform_url}/users/phone_numbers"
 
-get_phone_numbers_url = (
-    lambda user_id: f"https://internal-gateway.storicarddev.com/v1/users/{user_id}/phone_numbers"
-)
+get_phone_numbers_url = lambda user_id: f"{platform_url}/users/{user_id}/phone_numbers"
 
-post_phone_number = "https://internal-gateway.storicarddev.com/v1/users/phone_numbers"
+post_phone_number = "{platform_url}/users/phone_numbers"
 
 
 def post_phone_payload(user_id, phone_number):

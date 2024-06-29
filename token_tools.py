@@ -8,7 +8,7 @@ url = "https://dev-api.storicarddev.com/idp/idp/cf"
 
 def get_token(email, password=None):
     if not password:
-        password = "Holamundo1."
+        password = "Holamundo1"
     payload = {
         "AuthFlow": "USER_PASSWORD_AUTH",
         "AuthParameters": {"PASSWORD": password, "USERNAME": email},

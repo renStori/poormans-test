@@ -6,6 +6,7 @@ from rich import print
 from device_session import send_session_data
 from phone_number import get_phone_numbers, send_phone_number
 from token_tools import get_token, process_token
+from users import retrieve_user_id, send_post_user
 
 
 @click.command()
@@ -27,7 +28,16 @@ def main(email, password):
     session_data_response = send_session_data(decoded_token)
     print(session_data_response)
 
-    # Check if user's in platform
+    # Check if user exist on Platform
+    platform_user_data = retrieve_user_id(decoded_token)
+    print(platform_user_data)
+    if platform_user_data["code"] == 404:
+        platform_user_data = send_post_user(decoded_token)
+        if platform_user_data["code"] == 201:
+            print(platform_user_data)
+            return print("[bold blue]User created in Platform[/bold blue]")
+
+    # Check if user has a phone in platform
     user_phone_number = get_phone_numbers(decoded_token)
     print(user_phone_number)
     if user_phone_number["status"] == "OK" and user_phone_number.get("data"):

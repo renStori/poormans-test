@@ -1,5 +1,7 @@
 from uuid import uuid4
 
+platform_url = "https://internal-gateway.storicarddev.com/v1"
+
 
 def generate_uuid() -> str:
     return str(uuid4())
