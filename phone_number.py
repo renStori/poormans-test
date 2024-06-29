@@ -34,13 +34,15 @@ def send_phone_number(decoded_token, phone_number=None):
     user_id = decoded_token["user_id"]
     if phone_number:
         phone = phone_number
-    if decoded_token["phone_number"]:
-        phone = decoded_token["phone_number"]
     else:
-        if not phone_number:
-            return "[bold red]Phone number not found in decoded_token and not provided[/bold red]"
+        if decoded_token["phone_number"]:
+            phone = decoded_token["phone_number"]
         else:
-            return "[bold red]Phone number not found in decoded_token[/bold red]"
+            if not phone_number:
+                return "[bold red]Phone number not found in decoded_token and not provided[/bold red]"
+            else:
+                return "[bold red]Phone number not found in decoded_token[/bold red]"
+    print(f"[yellow]User ID: {user_id} Generated phone: {phone}[/yellow]")
     payload = post_phone_payload(user_id, phone)
     headers = create_headers(decoded_token)
     r = requests.post(post_user_phone_url, headers=headers, json=payload)
