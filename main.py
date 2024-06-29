@@ -7,10 +7,11 @@ from token_tools import get_token, process_token
 
 
 @click.command()
-@click.option("--email", required=True, help="Email address to use for the session")
-def main(email):
+@click.option("--email", required=True)
+@click.option("--password", required=False)
+def main(email, password):
     # Get access_token
-    access_token = get_token(email)
+    access_token = get_token(email, password)
     print(access_token)
 
     # Decode Token

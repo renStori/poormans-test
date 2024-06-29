@@ -6,10 +6,12 @@ import requests
 url = "https://dev-api.storicarddev.com/idp/idp/cf"
 
 
-def get_token(email):
+def get_token(email, password=None):
+    if not password:
+        password = "Holamundo1."
     payload = {
         "AuthFlow": "USER_PASSWORD_AUTH",
-        "AuthParameters": {"PASSWORD": "Holamundo1.", "USERNAME": email},
+        "AuthParameters": {"PASSWORD": password, "USERNAME": email},
         "ClientId": "2hd3pqt5687oo7co4o24ligojj",
     }
     headers = {
