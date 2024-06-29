@@ -26,6 +26,7 @@ def main(email):
 
     # Check if user's in platform
     user_phone_number = get_phone_numbers(decoded_token)
+    print(user_phone_number)
     if user_phone_number["status"] == "OK" and user_phone_number.get("data"):
         if len(user_phone_number["data"].get("phone_numbers")):
             return print(
