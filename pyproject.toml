@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "poormans-test"
+version = "0.1.0"
+description = ""
+authors = ["Ren Kasiyas <renato.campos@storicard.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.32.3"
+rich = "^13.7.1"
+pyjwt = "^2.8.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
