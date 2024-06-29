@@ -1,7 +1,6 @@
 from datetime import datetime as dt
 
 import requests
-from rich import print
 
 from helpers import create_headers, generate_uuid
 from token_tools import get_token, process_token
@@ -34,5 +33,4 @@ def send_session_data(decoded_token):
     headers = create_headers(decoded_token)
     payload = session_payload(decoded_token["user_id"])
     r = requests.post(url, headers=headers, json=payload)
-    print(r.json())
     return r.json()

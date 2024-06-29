@@ -2,7 +2,6 @@ import json
 
 import jwt
 import requests
-from rich import print
 
 url = "https://dev-api.storicarddev.com/idp/idp/cf"
 
@@ -28,7 +27,6 @@ def process_token(access_token):
     decoded_token = jwt.decode(
         bytes(id_token, "utf-8"), options={"verify_signature": False}
     )
-    print(decoded_token)
     return {
         "auth_type": auth_type,
         "id_token": id_token,
