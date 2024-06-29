@@ -1,3 +1,5 @@
+from random import randrange
+
 import click
 from rich import print
 
@@ -36,6 +38,13 @@ def main(email, password):
 
     # Send phone number
     phone_number_response = send_phone_number(decoded_token)
+    print(phone_number_response)
+
+    if phone_number_response.get("code") == 409:
+        phone_number_response = send_phone_number(
+            decoded_token, str(randrange(1000000000, 9999999999))
+        )
+
     print(phone_number_response)
 
 
