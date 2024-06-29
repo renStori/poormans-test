@@ -27,10 +27,11 @@ def process_token(access_token):
     decoded_token = jwt.decode(
         bytes(id_token, "utf-8"), options={"verify_signature": False}
     )
+
     return {
         "auth_type": auth_type,
         "id_token": id_token,
-        "user_id": decoded_token["sub"],
-        "email": decoded_token["email"],
-        "phone_number": decoded_token["phone_number"],
+        "user_id": decoded_token.get("sub"),
+        "email": decoded_token.get("email"),
+        "phone_number": decoded_token.get("phone_number"),
     }
