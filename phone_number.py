@@ -3,9 +3,7 @@ from rich import print
 
 from helpers import create_headers
 
-url = (
-    "https://internal-gateway.storicarddev.com/powerup-users-api/v1/users/phone_numbers"
-)
+url = "https://internal-gateway.storicarddev.com/v1/users/phone_numbers"
 
 
 def phone_payload(user_id, phone_number):
