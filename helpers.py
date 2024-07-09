@@ -1,6 +1,17 @@
+from random import choices
+from string import ascii_uppercase, digits
 from uuid import uuid4
 
 platform_url = "https://internal-gateway.storicarddev.com/v1"
+
+
+def not_a_curp():
+    return (
+        "".join(choices(ascii_uppercase, k=4))
+        + "".join(choices(digits, k=6))
+        + "".join(choices(ascii_uppercase, k=6))
+        + "".join(choices(digits, k=2))
+    )
 
 
 def generate_uuid() -> str:

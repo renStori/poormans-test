@@ -5,7 +5,16 @@ import requests
 from helpers import create_headers, platform_url
 
 users_url = f"{platform_url}/users"
-get_users_url = lambda user_id: f"{users_url}/{user_id}"
+user_url = lambda user_id: f"{users_url}/{user_id}"
+
+
+def patch_user(decoded_token, field, value):
+    user_id = decoded_token["user_id"]
+    payload = {field: value}
+    r = requests.patch(
+        user_url(user_id), headers=create_headers(decoded_token), json=payload
+    )
+    return r.json()
 
 
 def post_user_payload(decoded_token):
@@ -34,5 +43,5 @@ def send_post_user(decoded_token):
 
 def retrieve_user_id(decoded_token):
     headers = create_headers(decoded_token)
-    r = requests.get(get_users_url(decoded_token["user_id"]), headers=headers)
+    r = requests.get(user_url(decoded_token["user_id"]), headers=headers)
     return r.json()
