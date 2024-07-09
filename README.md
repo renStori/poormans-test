@@ -12,6 +12,9 @@ poetry install --no-root
 
 # Execute
 poetry run python main.py --email poormans-email@yopmail.com # By default --password is Holamundo1
+
+# Erase CURP
+poetry run python erase_curp.py --email stori.cosmos22@yopmail.com # By default --password is Holamundo1
 ```
 
 ## Documentation
