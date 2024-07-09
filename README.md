@@ -11,7 +11,7 @@ cd poormans-test
 poetry install --no-root
 
 # Execute
-poetry run python main.py --email poormans-email@yopmail.com # By defaul --password is Holamundo1
+poetry run python main.py --email poormans-email@yopmail.com # By default --password is Holamundo1
 ```
 
 ## Documentation
